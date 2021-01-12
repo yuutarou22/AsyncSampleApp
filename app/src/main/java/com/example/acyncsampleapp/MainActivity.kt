@@ -73,10 +73,11 @@ class MainActivity : AppCompatActivity() {
         // 音楽アプリを作る場合、他のアクティビティに切り替えた際、音楽が停止してしまう。
         // Activityのライフサイクルとは切り離して別で、処理を実行するための仕組み。
         // Bindを使えば、Activityからの制御も可能。
-//        startService(Intent(this, SampleService().class)) Kotlinでは書き方が異なるみたい。
-        startForegroundService(Intent(this, SampleService::class.java))
-        sleep(800)
-        stopService(Intent(this, SampleService::class.java))
+//        startService(Intent(this, SampleService().class)) Oreoからは書き方が異なる↓
+//        startForegroundService(Intent(this, SampleService::class.java))
+//        sleep(800)
+//        stopService(Intent(this, SampleService::class.java))
+
         /* IntentService */
         // Handlerを使った非同期処理のもう１つの仕組み
         // ServiceというUIを保持しないコンポーネントに対してIntentを渡すと、非同期処理が裏で実行され、Activityと切り離されたところで実行される。
